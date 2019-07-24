@@ -1,0 +1,8 @@
+# Dependencies
+.rpt2_cache
+node_modules
+npm-error*
+yarn-error*
+
+# Build
+lib
