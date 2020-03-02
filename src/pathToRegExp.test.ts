@@ -30,4 +30,11 @@ describe('pathToRegExp', () => {
       )
     })
   })
+
+  describe('given a url with a port', () => {
+    it('should leave port number as-is', () => {
+      const exp = pathToRegExp('http://localhost:4000')
+      expect(exp).toEqual(/http:\/\/localhost:4000/g)
+    })
+  })
 })

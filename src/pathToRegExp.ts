@@ -7,7 +7,7 @@ export const pathToRegExp = (path: string): RegExp => {
     .replace(/\./g, '\\.')
     .replace(/\//g, '/')
     .replace('*', '.+?')
-    .replace(/:(\w+(?=\/|$))/g, (_, match) => `(?<${match}>.+?(?=\/|$))`)
+    .replace(/:([^\d]\w+(?=\/|$))/g, (_, match) => `(?<${match}>.+?(?=\/|$))`)
 
   return new RegExp(pattern, 'g')
 }
