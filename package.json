@@ -8,6 +8,19 @@
   "types": "lib",
   "author": "Artem Zakharchenko <kettanaito@gmail.com>",
   "license": "MIT",
+  "keywords": [
+    "url",
+    "uri",
+    "path",
+    "route",
+    "mask",
+    "match",
+    "matcher",
+    "path-to-regexp",
+    "regexp",
+    "wildcard",
+    "params"
+  ],
   "scripts": {
     "test": "jest",
     "clean": "rimraf -rf lib",
