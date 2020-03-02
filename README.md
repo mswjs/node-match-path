@@ -1,6 +1,6 @@
 # `node-match-path`
 
-Matches a URL against the given path string.
+Matches a URL against the given path.
 
 ## Getting started
 
@@ -10,7 +10,7 @@ Matches a URL against the given path string.
 npm install node-match-path
 ```
 
-### Usage
+## Usage
 
 ```js
 const { match } = require('node-match-path')
@@ -20,11 +20,11 @@ match('/user/:userId', '/user/5')
 
 ## API
 
-### `match(path: string, url: string): Match`
+### `match(path: RegExp | string, url: string): Match`
 
 Returns a match data, if any, between a url and a path.
 
-#### Plain string path
+#### String path
 
 ```js
 match('/admin', '/admin')
@@ -51,7 +51,18 @@ match('/admin/:messageId', '/admin/sh3fe')
 #### Path with wildcard
 
 ```js
-match('/messages/*/participants', '/messages/2/participants')
+match('/user/*/inbox', '/user/abcd-1234/inbox')
+
+{
+  matches: true,
+  params: null
+}
+```
+
+#### Regular expression
+
+```js
+match(/\/messages\/.+?\/participants/, '/messages/5/participants')
 
 {
   matches: true,
