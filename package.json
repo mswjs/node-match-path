@@ -1,6 +1,6 @@
 {
   "name": "node-match-path",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Matches a url against the given path.",
   "esnext": "src/index.ts",
   "main": "lib/cjs.js",
