@@ -5,7 +5,7 @@
   "esnext": "src/index.ts",
   "main": "lib/cjs.js",
   "module": "lib/esm.js",
-  "types": "lib",
+  "types": "lib/index.d.ts",
   "author": "Artem Zakharchenko <kettanaito@gmail.com>",
   "license": "MIT",
   "keywords": [
