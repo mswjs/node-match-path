@@ -12,7 +12,12 @@ interface Match {
  */
 export const match = (path: Path, url: string): Match => {
   const expression = path instanceof RegExp ? path : pathToRegExp(path)
+
+  console.log({ expression })
+
   const match = expression.exec(url) || false
+
+  console.log({ match })
 
   // Matches in strict mode: match string should equal to input (url)
   // Otherwise loose matches will be considered truthy:

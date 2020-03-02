@@ -21,4 +21,13 @@ describe('pathToRegExp', () => {
       expect(exp).toEqual(/\/user\/.+?\/shipment/g)
     })
   })
+
+  describe('given a full url', () => {
+    it('should escape the url characters', () => {
+      const exp = pathToRegExp('https://api.github.com/users/:username')
+      expect(exp).toEqual(
+        /https:\/\/api\.github\.com\/users\/(?<username>.+?(?=\/|$))/g,
+      )
+    })
+  })
 })

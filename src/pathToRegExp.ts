@@ -4,7 +4,8 @@
  */
 export const pathToRegExp = (path: string): RegExp => {
   const pattern = path
-    .replace(/\/+/g, '/')
+    .replace(/\./g, '\\.')
+    .replace(/\//g, '/')
     .replace('*', '.+?')
     .replace(/:(\w+(?=\/|$))/g, (_, match) => `(?<${match}>.+?(?=\/|$))`)
 
