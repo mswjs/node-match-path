@@ -1,4 +1,4 @@
-import {pathToRegExp} from './pathToRegExp'
+import { pathToRegExp } from './pathToRegExp'
 
 type Path = RegExp | string
 
@@ -21,6 +21,6 @@ export const match = (path: Path, url: string): Match => {
 
   return {
     matches,
-    params: match && matches ? match.groups : undefined,
+    params: match && matches ? match.groups || null : null,
   }
 }

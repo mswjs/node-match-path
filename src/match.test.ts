@@ -12,7 +12,7 @@ describe('match', () => {
       })
 
       it('should not return any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
 
@@ -24,7 +24,7 @@ describe('match', () => {
       })
 
       it('should not have any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
   })
@@ -52,7 +52,7 @@ describe('match', () => {
       })
 
       it('should not have any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
 
@@ -64,7 +64,7 @@ describe('match', () => {
       })
 
       it('should not have any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
 
@@ -76,7 +76,7 @@ describe('match', () => {
       })
 
       it('should not have any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
   })
@@ -90,7 +90,7 @@ describe('match', () => {
       })
 
       it('should not return any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
 
@@ -102,7 +102,7 @@ describe('match', () => {
       })
 
       it('should not return any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
 
@@ -114,7 +114,7 @@ describe('match', () => {
       })
 
       it('should not return any parameters', () => {
-        expect(result).toHaveProperty('params', undefined)
+        expect(result).toHaveProperty('params', null)
       })
     })
   })
