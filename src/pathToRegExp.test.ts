@@ -1,4 +1,4 @@
-import pathToRegExp from './pathToRegExp'
+import { pathToRegExp } from './pathToRegExp'
 
 describe('pathToRegExp', () => {
   describe('given a plain string path', () => {

@@ -1,4 +1,4 @@
-import match from './match'
+import { match } from './match'
 
 describe('match', () => {
   describe('given an exact path', () => {
@@ -7,11 +7,11 @@ describe('match', () => {
     describe('given a matching url', () => {
       const result = match(path, '/messages/')
 
-      it('should match', () => {
+      it('should return match', () => {
         expect(result).toHaveProperty('matches', true)
       })
 
-      it('should have no parameters', () => {
+      it('should not return any parameters', () => {
         expect(result).toHaveProperty('params', undefined)
       })
     })
@@ -19,11 +19,11 @@ describe('match', () => {
     describe('given a non-matching url', () => {
       const result = match(path, '/not-found')
 
-      it('should not match', () => {
+      it('should not return match', () => {
         expect(result).toHaveProperty('matches', false)
       })
 
-      it('should have no parameters', () => {
+      it('should not have any parameters', () => {
         expect(result).toHaveProperty('params', undefined)
       })
     })
@@ -35,11 +35,11 @@ describe('match', () => {
     describe('given a matching url', () => {
       const result = match(path, '/messages/123-456')
 
-      it('should match', () => {
+      it('should return match', () => {
         expect(result).toHaveProperty('matches', true)
       })
 
-      it('should have parameter "messageId"', () => {
+      it('should return parameter "messageId"', () => {
         expect(result).toHaveProperty('params', { messageId: '123-456' })
       })
     })
@@ -47,11 +47,11 @@ describe('match', () => {
     describe('given less than matching url', () => {
       const result = match(path, '/messages/')
 
-      it('should not match', () => {
+      it('should not return match', () => {
         expect(result).toHaveProperty('matches', false)
       })
 
-      it('should have no parameters', () => {
+      it('should not have any parameters', () => {
         expect(result).toHaveProperty('params', undefined)
       })
     })
@@ -59,11 +59,11 @@ describe('match', () => {
     describe('given more than matching url', () => {
       const result = match(path, '/messages/123/users')
 
-      it('should not match', () => {
+      it('should not return match', () => {
         expect(result).toHaveProperty('matches', false)
       })
 
-      it('should have no parameters', () => {
+      it('should not have any parameters', () => {
         expect(result).toHaveProperty('params', undefined)
       })
     })
@@ -71,11 +71,49 @@ describe('match', () => {
     describe('given non-matching url', () => {
       const result = match(path, '/not-found')
 
-      it('should not match', () => {
+      it('should not return match', () => {
         expect(result).toHaveProperty('matches', false)
       })
 
-      it('should have no parameters', () => {
+      it('should not have any parameters', () => {
+        expect(result).toHaveProperty('params', undefined)
+      })
+    })
+  })
+
+  describe('given a RegExp path', () => {
+    describe('given a matching url', () => {
+      const result = match(/\/users\//, '/users/')
+
+      it('should return match', () => {
+        expect(result).toHaveProperty('matches', true)
+      })
+
+      it('should not return any parameters', () => {
+        expect(result).toHaveProperty('params', undefined)
+      })
+    })
+
+    describe('given a matching url with wildcard', () => {
+      const result = match(/\/user\/.+?\//, '/user/abcd-1234/')
+
+      it('should return match', () => {
+        expect(result).toHaveProperty('matches', true)
+      })
+
+      it('should not return any parameters', () => {
+        expect(result).toHaveProperty('params', undefined)
+      })
+    })
+
+    describe('given a non-matching url', () => {
+      const result = match(/\/user\//, '/settings')
+
+      it('should not return match', () => {
+        expect(result).toHaveProperty('matches', false)
+      })
+
+      it('should not return any parameters', () => {
         expect(result).toHaveProperty('params', undefined)
       })
     })
