@@ -8,6 +8,10 @@
   "types": "lib/index.d.ts",
   "author": "Artem Zakharchenko <kettanaito@gmail.com>",
   "license": "MIT",
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "keywords": [
     "url",
     "uri",
