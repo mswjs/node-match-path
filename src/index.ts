@@ -1,1 +1,2 @@
-export { default as match } from './match'
+export { match } from './match'
+export { pathToRegExp } from './pathToRegExp'

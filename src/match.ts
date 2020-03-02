@@ -1,4 +1,6 @@
-import pathToRegExp from './pathToRegExp'
+import {pathToRegExp} from './pathToRegExp'
+
+type Path = RegExp | string
 
 interface Match {
   matches: boolean
@@ -8,8 +10,8 @@ interface Match {
 /**
  * Matches a given url against a path.
  */
-export default function match(path: string, url: string): Match {
-  const expression = pathToRegExp(path)
+export const match = (path: Path, url: string): Match => {
+  const expression = path instanceof RegExp ? path : pathToRegExp(path)
   const match = expression.exec(url) || false
 
   // Matches in strict mode: match string should equal to input (url)
