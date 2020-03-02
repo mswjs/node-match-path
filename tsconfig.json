@@ -6,5 +6,5 @@
     "declarationDir": "./lib",
     "noImplicitAny": true
   },
-  "exclude": ["src/**/*.test.ts"]
+  "exclude": ["**/*.test.ts"]
 }
