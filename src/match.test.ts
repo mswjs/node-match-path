@@ -118,4 +118,32 @@ describe('match', () => {
       })
     })
   })
+
+  describe('given a path without a trailing slash', () => {
+    describe('given a matching url with a trailing slash', () => {
+      const result = match('https://test.msw.io', 'https://test.msw.io/')
+
+      it('should return match', () => {
+        expect(result).toHaveProperty('matches', true)
+      })
+
+      it('should not return any parameters', () => {
+        expect(result).toHaveProperty('params', null)
+      })
+    })
+  })
+
+  describe('given a patch with a trailing slash', () => {
+    describe('given a matching url with a trailing slash', () => {
+      const result = match('https://test.msw.io/', 'https://test.msw.io')
+
+      it('should return match', () => {
+        expect(result).toHaveProperty('matches', true)
+      })
+
+      it('should not return any parameters', () => {
+        expect(result).toHaveProperty('params', null)
+      })
+    })
+  })
 })
