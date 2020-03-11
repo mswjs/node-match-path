@@ -1,7 +1,7 @@
 {
   "name": "node-match-path",
   "version": "0.2.3",
-  "description": "Matches a url against the given path.",
+  "description": "Dependency-free request URI matcher",
   "esnext": "src/index.ts",
   "main": "lib/cjs.js",
   "module": "lib/esm.js",
