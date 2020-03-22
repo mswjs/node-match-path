@@ -4,6 +4,7 @@
     "target": "es2015",
     "declaration": true,
     "declarationDir": "./lib",
+    "esModuleInterop": true,
     "noImplicitAny": true
   },
   "exclude": ["node_modules", "**/*.test.ts"]
