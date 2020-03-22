@@ -18,6 +18,14 @@ npm install node-match-path
 const { match } = require('node-match-path')
 
 match('/user/:userId', '/user/5')
+/*
+{
+  matches: true,
+  params: {
+    userId: '5'
+  }
+}
+*/
 ```
 
 ## API
@@ -31,34 +39,40 @@ Returns a match data, if any, between a url and a path.
 ```js
 match('/admin', '/admin')
 
+/*
 {
   matches: true,
   params: null
 }
+*/
 ```
 
-#### Path with parameters
+#### Path parameters
 
 ```js
-match('/admin/:messageId', '/admin/sh3fe')
+match('/admin/:messageId', '/admin/abc-123')
 
+/*
 {
   matches: true,
   params: {
-    messageId: 'sh3fe'
+    messageId: 'abc-123'
   }
 }
+*/
 ```
 
-#### Path with wildcard
+#### Wildcard
 
 ```js
-match('/user/*/inbox', '/user/abcd-1234/inbox')
+match('/user/*/inbox', '/user/abc-123/inbox')
 
+/*
 {
   matches: true,
   params: null
 }
+*/
 ```
 
 #### Regular expression
@@ -66,10 +80,12 @@ match('/user/*/inbox', '/user/abcd-1234/inbox')
 ```js
 match(/\/messages\/.+?\/participants/, '/messages/5/participants')
 
+/*
 {
   matches: true,
   params: null
 }
+*/
 ```
 
 ## Honorable mentions
