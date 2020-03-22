@@ -1,3 +1,5 @@
+[![Package version](https://img.shields.io/npm/v/node-match-path.svg)](https://npmjs.com/package/node-match-path)
+
 # `node-match-path`
 
 Matches a URL against the given path.
