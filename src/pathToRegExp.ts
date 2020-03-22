@@ -8,6 +8,8 @@ export const pathToRegExp = (path: string): RegExp => {
     .replace(/\./g, '\\.')
     // Escape literal slashes
     .replace(/\//g, '/')
+    // Escape literal question marks
+    .replace(/\?/g, '\\?')
     // Ignore trailing slashes
     .replace(/\/+$/, '')
     .replace('*', '.+?')

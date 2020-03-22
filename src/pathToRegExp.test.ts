@@ -37,4 +37,11 @@ describe('pathToRegExp', () => {
       expect(exp).toEqual(/http:\/\/localhost:4000\/?/g)
     })
   })
+
+  describe('given a string with a question mark', () => {
+    it('should escape the question mark', () => {
+      const exp = pathToRegExp('http://test.msw.io/api/books?id=123')
+      expect(exp).toEqual(/http:\/\/test\.msw\.io\/api\/books\?id=123\/?/g)
+    })
+  })
 })
