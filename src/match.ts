@@ -1,6 +1,6 @@
 import { pathToRegExp } from './pathToRegExp'
 
-type Path = RegExp | string
+export type Path = RegExp | string
 
 interface Match {
   matches: boolean
@@ -17,7 +17,8 @@ export const match = (path: Path, url: string): Match => {
   // Matches in strict mode: match string should equal to input (url)
   // Otherwise loose matches will be considered truthy:
   // match('/messages/:id', '/messages/123/users') // true
-  const matches = !!match && match[0] === match.input
+  const matches =
+    path instanceof RegExp ? !!match : !!match && match[0] === match.input
 
   return {
     matches,
