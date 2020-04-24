@@ -72,6 +72,52 @@ runner('Path', [
       },
     ],
   },
+  {
+    given: '/user/:userId/messages/:messageId',
+    when: [
+      {
+        actual: '/user/abc-123/messages/def-456',
+        it: {
+          matches: true,
+          params: {
+            userId: 'abc-123',
+            messageId: 'def-456',
+          },
+        },
+      },
+      {
+        actual: '/user/abc-123/messages/def-456/',
+        it: {
+          matches: true,
+          params: {
+            userId: 'abc-123',
+            messageId: 'def-456',
+          },
+        },
+      },
+      {
+        actual: '/user/abc-123/messages/def-456/arbitrary',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
+        actual: '/user/abc-123/messages',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
+        actual: '/user/abc-123',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+    ],
+  },
 
   /**
    * Wildcard
