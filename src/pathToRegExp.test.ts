@@ -15,6 +15,21 @@ describe('pathToRegExp', () => {
     })
   })
 
+  describe('given a path with a one-character parameter', () => {
+    it('should replace parameter with a group', () => {
+      const exp = pathToRegExp('/user/:u')
+      expect(exp).toEqual(/\/user\/(?<u>.+?)(\/|$)/g)
+    })
+  })
+
+  describe('given a path with multiple parameters', () => {
+    it('should replace each parameter with a group', () => {
+      expect(pathToRegExp('/user/:userId/messages/:messageId')).toEqual(
+        /\/user\/(?<userId>.+?)\/messages\/(?<messageId>.+?)(\/|$)/g,
+      )
+    })
+  })
+
   describe('given a path with a wildcard', () => {
     it('should handle wildcard', () => {
       const exp = pathToRegExp('/user/*/shipping')

@@ -15,7 +15,10 @@ export const pathToRegExp = (path: string): RegExp => {
     // Replace wildcard with any single character sequence
     .replace(/\*+/g, '.+')
     // Replace parameters with named capturing groups
-    .replace(/:([^\d]\w+(?=\/|$))/g, (_, match) => `(?<${match}>.+?)`)
+    .replace(
+      /:([^\d|^\/][a-zA-Z0-9]*(?=\/|$))/g,
+      (_, match) => `(?<${match}>.+?)`,
+    )
     // Allow optional trailing slash
     .concat('(\\/|$)')
 

@@ -118,6 +118,43 @@ runner('Path', [
       },
     ],
   },
+  {
+    given: '/user/:u',
+    when: [
+      {
+        actual: '/user/abc-123',
+        it: {
+          matches: true,
+          params: {
+            u: 'abc-123',
+          },
+        },
+      },
+      {
+        actual: '/user/abc-123/',
+        it: {
+          matches: true,
+          params: {
+            u: 'abc-123',
+          },
+        },
+      },
+      {
+        actual: '/user/abc-123/arbitrary',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
+        actual: '/user/',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+    ],
+  },
 
   /**
    * Wildcard
