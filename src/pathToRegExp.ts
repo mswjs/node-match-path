@@ -12,9 +12,12 @@ export const pathToRegExp = (path: string): RegExp => {
     .replace(/\?/g, '\\?')
     // Ignore trailing slashes
     .replace(/\/+$/, '')
-    .replace('*', '.+?')
-    .replace(/:([^\d]\w+(?=\/|$))/g, (_, match) => `(?<${match}>.+?(?=\/|$))`)
-    .concat('\\/?')
+    // Replace wildcard with any single character sequence
+    .replace(/\*+/g, '.+')
+    // Replace parameters with named capturing groups
+    .replace(/:([^\d]\w+(?=\/|$))/g, (_, match) => `(?<${match}>.+?)`)
+    // Allow optional trailing slash
+    .concat('(\\/|$)')
 
   return new RegExp(pattern, 'g')
 }
