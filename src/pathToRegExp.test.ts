@@ -66,4 +66,11 @@ describe('pathToRegExp', () => {
       expect(exp).toEqual(/http:\/\/test\.msw\.io\/api\/books\?id=123(\/|$)/g)
     })
   })
+
+  describe('given a path with a parameter and extension', () => {
+    it('should properly parse the parameter', () => {
+      const exp = pathToRegExp('/user/:userId.json')
+      expect(exp).toEqual(/\/user\/(?<userId>.+?)\.json(\/|$)/g)
+    })
+  })
 })

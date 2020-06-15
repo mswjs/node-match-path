@@ -16,7 +16,7 @@ export const pathToRegExp = (path: string): RegExp => {
     .replace(/\*+/g, '.+')
     // Replace parameters with named capturing groups
     .replace(
-      /:([^\d|^\/][a-zA-Z0-9]*(?=\/|$))/g,
+      /:([^\d|^\/][a-zA-Z0-9]*(?=(?:\/|\\.)|$))/g,
       (_, match) => `(?<${match}>.+?)`,
     )
     // Allow optional trailing slash
