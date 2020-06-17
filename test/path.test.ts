@@ -155,6 +155,36 @@ runner('Path', [
       },
     ],
   },
+  {
+    given: '/files/:filename.json',
+    when: [
+      {
+        actual: '/files/report.json',
+        it: {
+          matches: true,
+          params: {
+            filename: 'report',
+          },
+        },
+      },
+      {
+        actual: '/files/long-report-name-2.json',
+        it: {
+          matches: true,
+          params: {
+            filename: 'long-report-name-2',
+          },
+        },
+      },
+      {
+        actual: '/files/:filename',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+    ],
+  },
 
   /**
    * Wildcard
