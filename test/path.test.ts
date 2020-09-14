@@ -258,6 +258,15 @@ runner('Path', [
         },
       },
       {
+        actual: '/User/abc-123/messages',
+        it: {
+          matches: true,
+          params: {
+            userId: 'abc-123',
+          },
+        },
+      },
+      {
         actual: '/user/abc-123/settings/',
         it: {
           matches: true,

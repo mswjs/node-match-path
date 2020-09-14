@@ -22,5 +22,5 @@ export const pathToRegExp = (path: string): RegExp => {
     // Allow optional trailing slash
     .concat('(\\/|$)')
 
-  return new RegExp(pattern, 'g')
+  return new RegExp(pattern, 'gi')
 }
