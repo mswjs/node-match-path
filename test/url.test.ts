@@ -12,6 +12,13 @@ runner('URL', [
         },
       },
       {
+        actual: '/Users',
+        it: {
+          matches: true,
+          params: null,
+        },
+      },
+      {
         actual: '/users/',
         it: {
           matches: true,
@@ -46,6 +53,13 @@ runner('URL', [
     when: [
       {
         actual: 'https://test.mockserviceworker.io',
+        it: {
+          matches: true,
+          params: null,
+        },
+      },
+      {
+        actual: 'https://test.MOCKSERVICEWORKER.io',
         it: {
           matches: true,
           params: null,
