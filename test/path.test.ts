@@ -45,6 +45,46 @@ runner('Path', [
     ],
   },
   {
+    given: '/user/:user_id',
+    when: [
+      {
+        actual: '/user/abc-123',
+        it: {
+          matches: true,
+          params: { user_id: 'abc-123' },
+        },
+      },
+      {
+        actual: '/user/abc-123/',
+        it: {
+          matches: true,
+          params: { user_id: 'abc-123' },
+        },
+      },
+      {
+        actual: '/user/',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
+        actual: '/user/abc-123/messages',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
+        actual: '/arbitrary/abc-123',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+    ],
+  },
+  {
     given: '/user/:userId/messages',
     when: [
       {
