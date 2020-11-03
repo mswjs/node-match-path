@@ -97,6 +97,13 @@ runner('Path', [
         },
       },
       {
+        actual: '/user/abc-123/def-456/messages',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
         actual: '/user/abc-123/messages/arbitrary',
         it: {
           matches: false,

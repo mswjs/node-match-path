@@ -11,21 +11,21 @@ describe('pathToRegExp', () => {
   describe('given a path with parameters', () => {
     it('should replace parameters with a group', () => {
       const exp = pathToRegExp('/user/:userId/')
-      expect(exp).toEqual(/\/user\/(?<userId>.+?)(\/|$)/gi)
+      expect(exp).toEqual(/\/user\/(?<userId>[^/]+?)(\/|$)/gi)
     })
   })
 
   describe('given a path with a one-character parameter', () => {
     it('should replace parameter with a group', () => {
       const exp = pathToRegExp('/user/:u')
-      expect(exp).toEqual(/\/user\/(?<u>.+?)(\/|$)/gi)
+      expect(exp).toEqual(/\/user\/(?<u>[^/]+?)(\/|$)/gi)
     })
   })
 
   describe('given a path with multiple parameters', () => {
     it('should replace each parameter with a group', () => {
       expect(pathToRegExp('/user/:userId/messages/:messageId')).toEqual(
-        /\/user\/(?<userId>.+?)\/messages\/(?<messageId>.+?)(\/|$)/gi,
+        /\/user\/(?<userId>[^/]+?)\/messages\/(?<messageId>[^/]+?)(\/|$)/gi,
       )
     })
   })
@@ -40,7 +40,7 @@ describe('pathToRegExp', () => {
   describe('given a path with parameter and wildcard', () => {
     it('should handle both', () => {
       const exp = pathToRegExp('/user/:userId/*')
-      expect(exp).toEqual(/\/user\/(?<userId>.+?)\/.+(\/|$)/gi)
+      expect(exp).toEqual(/\/user\/(?<userId>[^/]+?)\/.+(\/|$)/gi)
     })
   })
 
@@ -48,7 +48,7 @@ describe('pathToRegExp', () => {
     it('should escape the url characters', () => {
       const exp = pathToRegExp('https://api.github.com/users/:username')
       expect(exp).toEqual(
-        /https:\/\/api\.github\.com\/users\/(?<username>.+?)(\/|$)/gi,
+        /https:\/\/api\.github\.com\/users\/(?<username>[^/]+?)(\/|$)/gi,
       )
     })
   })
@@ -70,7 +70,7 @@ describe('pathToRegExp', () => {
   describe('given a path with a parameter and extension', () => {
     it('should properly parse the parameter', () => {
       const exp = pathToRegExp('/user/:userId.json')
-      expect(exp).toEqual(/\/user\/(?<userId>.+?)\.json(\/|$)/gi)
+      expect(exp).toEqual(/\/user\/(?<userId>[^/]+?)\.json(\/|$)/gi)
     })
   })
 })
