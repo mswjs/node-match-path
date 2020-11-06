@@ -33,14 +33,14 @@ describe('pathToRegExp', () => {
   describe('given a path with a wildcard', () => {
     it('should handle wildcard', () => {
       const exp = pathToRegExp('/user/*/shipping')
-      expect(exp).toEqual(/\/user\/.+\/shipping(\/|$)/gi)
+      expect(exp).toEqual(/\/user\/.*\/shipping(\/|$)/gi)
     })
   })
 
   describe('given a path with parameter and wildcard', () => {
     it('should handle both', () => {
       const exp = pathToRegExp('/user/:userId/*')
-      expect(exp).toEqual(/\/user\/(?<userId>[^/]+?)\/.+(\/|$)/gi)
+      expect(exp).toEqual(/\/user\/(?<userId>[^/]+?)\/.*(\/|$)/gi)
     })
   })
 
