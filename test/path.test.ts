@@ -288,6 +288,25 @@ runner('Path', [
       },
     ],
   },
+  {
+    given: '/user/details*',
+    when: [
+      {
+        actual: '/user/details',
+        it: {
+          matches: true,
+          params: null,
+        },
+      },
+      {
+        actual: '/user/details/arbitrary',
+        it: {
+          matches: true,
+          params: null,
+        },
+      },
+    ],
+  },
 
   /**
    * Parameter and wildcard
