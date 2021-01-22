@@ -2,7 +2,7 @@ import { pathToRegExp } from './pathToRegExp'
 
 export type Path = RegExp | string
 
-interface Match {
+export interface Match {
   matches: boolean
   params: Record<string, string>
 }
