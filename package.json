@@ -1,6 +1,6 @@
 {
   "name": "node-match-path",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Dependency-free request URI matcher",
   "esnext": "src/index.ts",
   "main": "lib/cjs.js",
