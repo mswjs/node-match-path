@@ -5,7 +5,8 @@
     "declaration": true,
     "declarationDir": "./lib",
     "esModuleInterop": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "strictNullChecks": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules", "test/**/*", "**/*.test.ts"]
