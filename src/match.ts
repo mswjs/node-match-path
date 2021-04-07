@@ -4,7 +4,7 @@ export type Path = RegExp | string
 
 export interface Match {
   matches: boolean
-  params: Record<string, string>
+  params: Record<string, string> | null
 }
 
 /**
