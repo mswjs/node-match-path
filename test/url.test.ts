@@ -93,4 +93,30 @@ runner('URL', [
       },
     ],
   },
+  {
+    given: `/resource\\('id'\\)`,
+    when: [
+      {
+        actual: `/resource('id')`,
+        it: {
+          matches: true,
+          params: null,
+        },
+      },
+      {
+        actual: `/resource('foo')`,
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+      {
+        actual: '/resource',
+        it: {
+          matches: false,
+          params: null,
+        },
+      },
+    ],
+  },
 ])
