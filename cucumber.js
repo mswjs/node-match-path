@@ -5,6 +5,9 @@ const options = [
 ]
 
 module.exports = {
-  default: ['./specification/**/*.feature', ...options].join(' '),
+  default: [
+    'node_modules/@universal-path/specification/features/**/*.feature',
+    ...options,
+  ].join(' '),
   only: options.join(' '),
 }

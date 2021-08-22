@@ -1794,6 +1794,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@universal-path/specification@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@universal-path/specification/-/specification-0.2.1.tgz#a923cdea75db75559d6bfffd562e41295156890e"
+  integrity sha512-qUL4i0FCCWE5HNTfHO8/WtHK/0VfxFW6x6QkLmccJM/m6IsJekXo8jeR/GaObOYGA6P7alGDSzccT+rlKO6aYg==
+
 abab@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.3.tgz#623e2075e02eb2d3f2475e49f99c91846467907a"

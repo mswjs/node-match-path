@@ -41,6 +41,7 @@
     "@types/chai": "^4.2.21",
     "@types/debug": "^4.1.7",
     "@types/jest": "^26.0.21",
+    "@universal-path/specification": "^0.2.1",
     "chai": "^4.3.4",
     "chokidar": "^3.5.2",
     "debug": "^4.3.2",
