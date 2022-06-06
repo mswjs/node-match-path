@@ -1,2 +1,2 @@
-export { Path, Match, match } from './match'
-export { pathToRegExp } from './pathToRegExp'
+export * from './match'
+export * from './toRegExp'

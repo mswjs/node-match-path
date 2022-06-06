@@ -29,5 +29,9 @@ jobs:
           name: Build
           command: yarn build
       - run:
-          name: Tests
+          name: Unit tests
           command: yarn test
+
+      - run:
+          name: Spefication tests
+          command: yarn spec:all
